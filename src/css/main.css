@@ -1,0 +1,81 @@
+.birthday-list {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0;
+    background-color: #23272a;
+    height: 750px;
+}
+
+.birthday-item {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+    box-shadow: 5px 10px;
+    background: #d3f3f4;
+    background: linear-gradient(#d7f4f5, #84eaee);
+}
+
+.name_and_date {
+    text-align: left;
+}
+
+.remove_and_time {
+    text-align: right;
+}
+
+.time {
+    position: relative;
+    top: -43px;
+}
+
+.btn-remove {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    font-size: 20px;
+    top: -40px;
+}
+.name {
+    position: relative;
+}
+
+.name .nameToolTip {
+    visibility: hidden;
+    width: 120px;
+    background: #d3f3f4;
+    background: linear-gradient(#d7f4f5, #84eaee);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 2;
+    top: -5px;
+    left: 105%; 
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.name .nameToolTip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #23272a transparent transparent transparent;
+}
+
+.name:hover .nameToolTip {
+    visibility: visible;
+    opacity: 1;
+}
