@@ -15,27 +15,27 @@ import '../css/main.css';
         let displayName;
         name.length >= 9 ? displayName = name.substring(0,9) + '...' : displayName = name;
 
-    return (
-        <div className="birthday-item">
-            <div className="name_and_date">
-                <div className="name">
-                    {`${displayName}\n`}
-                    <span className='nameToolTip'>{name}</span>
+        return (
+            <div className="birthday-item">
+                <div className="name_and_date">
+                    <div className="name">
+                        {`${displayName}\n`}
+                        <span className='nameToolTip'>{name}</span>
+                    </div>
+                    <div className="date">
+                        {`${birthdayTime.getMonth()}/${birthdayTime.getDate()}`}
+                    </div>
                 </div>
-                <div className="date">
-                    {`${birthdayTime.getMonth()}/${birthdayTime.getDate()}`}
+                <div className="remove_and_time">
+                    <button className="btn-remove" type="button" onClick={() => BirthdayActions.remove(self)}>
+                        &times;
+                    </button>
+                    <div className="time">
+                        {`${birthdayTime.getHours()}:${birthdayTime.getMinutes()}`}
+                    </div>
                 </div>
             </div>
-            <div className="remove_and_time">
-                <button className="btn-remove" type="button" onClick={() => BirthdayActions.remove(self)}>
-                    &times;
-                </button>
-                <div className="time">
-                    {`${birthdayTime.getHours()}:${birthdayTime.getMinutes()}`}
-                </div>
-            </div>
-        </div>
-    );
+        );
 }
 
 class BirthdayList extends React.Component {
@@ -54,7 +54,7 @@ class BirthdayList extends React.Component {
     static calculateState(prevState) {
         const birthdays = BirthdayStore.getState();
 
-        return {...birthdays}
+        return {...birthdays};
     }
 
     onSubmit(event) {

@@ -1,5 +1,5 @@
-import ActionTypes from './ActionTypes'
-import Dispatcher from '../Dispatcher'
+import ActionTypes from './ActionTypes';
+import Dispatcher from '../Dispatcher';
 
 export default {
     add(name, date, timezone) {
@@ -15,4 +15,4 @@ export default {
             index,
         })
     }
-}
+};

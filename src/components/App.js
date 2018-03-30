@@ -1,8 +1,8 @@
-import React from 'react'
-import BirthdayList from './BirthdayList'
+import React from 'react';
+import BirthdayList from './BirthdayList';
 
 function App() {
-    return (<BirthdayList />)
+    return (<BirthdayList />);
 }
 
-export default App
+export default App;

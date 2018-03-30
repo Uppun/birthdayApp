@@ -1,6 +1,6 @@
-import {ReduceStore} from 'flux/utils'
-import Dispatcher from '../Dispatcher'
-import ActionTypes from '../actions/ActionTypes'
+import {ReduceStore} from 'flux/utils';
+import Dispatcher from '../Dispatcher';
+import ActionTypes from '../actions/ActionTypes';
 
 class BirthdayStore extends ReduceStore {
     constructor() {
@@ -22,7 +22,6 @@ class BirthdayStore extends ReduceStore {
                 return {birthdays: birthdayAdd};
             }
             case ActionTypes.REMOVE: {
-                console.log(action.index)
                 const birthdayRemove = [...state.birthdays];
                 birthdayRemove.splice(action.index, 1);
                 return {birthdays: birthdayRemove};
@@ -34,4 +33,4 @@ class BirthdayStore extends ReduceStore {
     }
 }
 
-export default new BirthdayStore()
+export default new BirthdayStore();
