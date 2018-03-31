@@ -2,10 +2,10 @@ import ActionTypes from './ActionTypes';
 import Dispatcher from '../Dispatcher';
 
 export default {
-    add(name, date, timezone) {
+    add(name, month, day, timezone) {
         Dispatcher.dispatch({
             type: ActionTypes.ADD,
-            data: {name, date, timezone},
+            data: {name, month, day, timezone},
         })
     },
 

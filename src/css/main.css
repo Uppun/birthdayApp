@@ -1,7 +1,7 @@
 .birthday-list {
     overflow: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
     background-color: #23272a;
@@ -12,7 +12,7 @@
     position: relative;
     width: 100px;
     height: 40px;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #fff;
     border-radius: 15px;
     padding: 5px;

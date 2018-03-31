@@ -4,16 +4,14 @@ import BirthdayActions from '../actions/BirthdayActions';
 import {Container} from 'flux/utils';
 import '../css/main.css';
 
-    function BirthdayListItem({self, name, date, time}) {
+    function BirthdayListItem({index, name, month, day, time}) {
         const d = new Date();
         const personalOffset = parseInt(d.getTimezoneOffset(), 10);
         const birthdayOffset = parseInt(time, 10);
-        const dateArray = date.split('/');
-        const timeDiff = (personalOffset) - (birthdayOffset);
-        const birthdayDate = new Date(d.getFullYear(), parseInt(dateArray[0]), parseInt(dateArray[1]));
-        const birthdayTime = new Date((birthdayDate.getTime() - (timeDiff*60000)));
-        let displayName;
-        name.length >= 9 ? displayName = name.substring(0,9) + '...' : displayName = name;
+        const timeDiff = personalOffset - birthdayOffset;
+        const birthdayDate = new Date(d.getFullYear(), parseInt(month, 10), parseInt(day, 10));
+        const birthdayTime = new Date(birthdayDate.getTime() - (timeDiff*60000));
+        const displayName = name.length >= 9 ? name.slice(0,9) + '...' : name;
 
         return (
             <div className="birthday-item">
@@ -27,7 +25,7 @@ import '../css/main.css';
                     </div>
                 </div>
                 <div className="remove_and_time">
-                    <button className="btn-remove" type="button" onClick={() => BirthdayActions.remove(self)}>
+                    <button className="btn-remove" type="button" onClick={() => BirthdayActions.remove(index)}>
                         &times;
                     </button>
                     <div className="time">
@@ -60,8 +58,9 @@ class BirthdayList extends React.Component {
     onSubmit(event) {
         event.preventDefault();
 
-        if(!(this.name.value === '') && isNaN(this.date.value)) {
-            BirthdayActions.add(this.name.value, this.date.value, this.timezone.value);
+        if(this.name.value && this.date.value) {
+            const [, month, day] = this.date.value.split('-');
+            BirthdayActions.add(this.name.value, month, day, this.timezone.value);
         }
     }
 
@@ -72,7 +71,7 @@ class BirthdayList extends React.Component {
         <div>
             <div className='birthday-list'>
                 {birthdays.map((birthday, index) => (
-                <BirthdayListItem key={index} self={index} name={birthday.name} date={birthday.date} time={birthday.timezone}/>
+                <BirthdayListItem key={index} index={index} name={birthday.name} month={birthday.month} day={birthday.day} time={birthday.timezone}/>
                 ))}
             </div>
         <form onSubmit={this.onSubmit}>
