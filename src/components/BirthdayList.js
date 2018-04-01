@@ -11,13 +11,12 @@ import '../css/main.css';
         const timeDiff = personalOffset - birthdayOffset;
         const birthdayDate = new Date(d.getFullYear(), parseInt(month, 10), parseInt(day, 10));
         const birthdayTime = new Date(birthdayDate.getTime() - (timeDiff*60000));
-        const displayName = name.length >= 9 ? name.slice(0,9) + '...' : name;
 
         return (
             <div className="birthday-item">
                 <div className="name_and_date">
                     <div className="name">
-                        {`${displayName}\n`}
+                        {`${name}\n`}
                         <span className='nameToolTip'>{name}</span>
                     </div>
                     <div className="date">
